@@ -1,0 +1,108 @@
+.title {
+  font-family: 'OpenSans', sans-serif;
+  font-size: 2.5rem;
+  color: rgb(0, 0, 0);
+  margin:3% auto;
+  letter-spacing: -1px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.goldText {
+  background: linear-gradient(145deg, #c9a876 0%, #e8dcc8 50%, #c9a876 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.headerSection {
+  text-align: center;
+  margin: 2% auto;
+}
+
+/* מתחת ל-350px */
+@media (max-width: 349px) {
+  .title {
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+  }
+  
+  .headerSection {
+    margin: 3% auto;
+  }
+}
+
+/* 350-450px */
+@media (min-width: 350px) and (max-width: 450px) {
+  .title {
+    font-size: 1.8rem;
+    letter-spacing: -0.5px;
+  }
+  
+  .headerSection {
+    margin: 2.5% auto;
+  }
+}
+
+/* 450-550px */
+@media (min-width: 451px) and (max-width: 550px) {
+  .title {
+    font-size: 1.7rem;
+    letter-spacing: -0.7px;
+  }
+}
+
+/* 550-650px */
+@media (min-width: 551px) and (max-width: 650px) {
+  .title {
+    font-size: 1.9rem;
+    letter-spacing: -0.8px;
+  }
+}
+
+/* 650-750px */
+@media (min-width: 651px) and (max-width: 750px) {
+  .title {
+    font-size: 2.1rem;
+    letter-spacing: -0.9px;
+  }
+}
+
+/* 750-850px */
+@media (min-width: 751px) and (max-width: 850px) {
+  .title {
+    font-size: 2.2rem;
+    letter-spacing: -0.9px;
+  }
+}
+
+/* 850-950px */
+@media (min-width: 851px) and (max-width: 950px) {
+  .title {
+    font-size: 2.3rem;
+    letter-spacing: -1px;
+  }
+}
+
+/* 950-1050px */
+@media (min-width: 951px) and (max-width: 1050px) {
+  .title {
+    font-size: 2.4rem;
+  }
+}
+
+/* 1050-1150px */
+@media (min-width: 1051px) and (max-width: 1150px) {
+  .title {
+    font-size: 2.45rem;
+  }
+}
+
+/* 1150-1250px */
+@media (min-width: 1151px) and (max-width: 1250px) {
+  .title {
+    font-size: 2.5rem;
+  }
+}

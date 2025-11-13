@@ -1,0 +1,126 @@
+.container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-family: "Assistant";
+  text-align: center;
+  margin: 1% auto;
+  direction: rtl;
+  width: 100%;
+  font-weight: 800;
+  color: black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.explain {
+  font-size: 25px;
+  direction: rtl;
+  width: 65%;
+  text-align: center;
+  margin: 2% auto;
+  font-family: "AssistantR";
+}
+
+.ctaButton {
+  display: block;
+  margin: 2% auto;
+  background: linear-gradient(145deg, #e1ccab 0%, #e8dcc8 50%, #decbae 100%);
+  color: #3a0101;
+  font-family: 'OpenSans', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 1.2rem 3rem;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 10px rgba(201, 168, 118, 0.4);
+  letter-spacing: -0.5px;
+  position: relative;
+  z-index: 3;
+}
+
+.scrollTrack {
+  display: flex;
+  width: fit-content;
+  animation: scroll 40s linear infinite;
+  gap: 20px;
+}
+
+.scrollContainer {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.imageWrapper {
+  flex-shrink: 0;
+  height: 400px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 450px) {
+  .title {
+    font-size: 2rem;
+  }
+  
+  .explain {
+    font-size: 18px;
+    width: 90%;
+  }
+
+  .ctaButton {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+  }
+
+  .imageWrapper {
+    height: 350px;
+  }
+}
+
+@media only screen and (min-width: 451px) and (max-width: 1050px) {
+  .title {
+    font-size: 2.2rem;
+  }
+  
+  .explain {
+    font-size: 20px;
+    width: 80%;
+  }
+
+  .ctaButton {
+    font-size: 1.2rem;
+    padding: 1.1rem 2.5rem;
+    border-radius: 13px;
+  }
+
+  .imageWrapper {
+    height: 380px;
+  }
+}

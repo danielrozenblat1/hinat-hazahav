@@ -1,0 +1,466 @@
+/* Me.module.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+/* הגדרות צבעים חדשות:
+   רקע כהה: #1A0406 (אדום כהה עמוק)
+   טקסט ראשי: #D4B89D (ברונזה בהירה/בז' חם)
+   טקסט משני: #C7B5A4 (בז' אפרפר)
+   הדגשות עדינות: #E0C8B0 (קרם ברונזה בהיר)
+*/
+
+/* Base section styling */
+.section {
+  width: 100%;
+ 
+  margin: 0;
+  padding: 0;
+  background: #1A0406; /* רקע אדום כהה עמוק */
+  color: #D4B89D; /* טקסט ברונזה בהירה */
+  overflow: visible;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    /* גוונים עדינים של אדום וברונזה */
+    radial-gradient(circle at 20% 80%, rgba(170, 6, 16, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(212, 184, 157, 0.04) 0%, transparent 60%),
+    radial-gradient(circle at 40% 40%, rgba(150, 5, 14, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Main container layout */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0;
+  align-items: center;
+  max-width: 100%;
+  width: 100%;
+
+  position: relative;
+  z-index: 1;
+}
+
+/* Image section */
+.imageWrapper {
+  width: 100%;
+  height: 90vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding: 20px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 15px;
+
+}
+
+/* Content section */
+.content {
+  padding: 60px 80px;
+
+  overflow: hidden;
+  /* גראדיאנט רקע גלאסי בגווני אדום עדינים */
+  background: linear-gradient(
+    135deg,
+    rgba(170, 6, 16, 0.06) 0%,
+    rgba(140, 5, 13, 0.04) 25%,
+    rgba(120, 4, 11, 0.08) 50%,
+    rgba(100, 3, 9, 0.04) 75%,
+    rgba(130, 4, 12, 0.06) 100%
+  );
+  backdrop-filter: blur(10px);
+  border-left: 1px solid rgba(170, 6, 16, 0.15); /* קו הפרדה אדום עדין */
+  position: relative;
+  direction: rtl;
+  text-align: right;
+}
+
+.content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 40%,
+    rgba(170, 6, 16, 0.025) 50%, /* הדגשה אדום עדינה */
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* Typography */
+.mainTitle {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: transparent;
+  /* גראדיאנט טקסט בגווני ברונזה עשירים */
+  background: linear-gradient(135deg, #D4B89D 0%, #B89C82 50%, #A38A73 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+/* Quote Container - Subtle Glass Effect */
+.quoteContainer {
+  /* גראדיאנט רקע גלאסי בגווני אדום עדינים */
+  background: linear-gradient(
+    135deg,
+    rgba(170, 6, 16, 0.05) 0%,
+    rgba(140, 5, 13, 0.03) 25%,
+    rgba(120, 4, 11, 0.07) 50%,
+    rgba(100, 3, 9, 0.03) 75%,
+    rgba(130, 4, 12, 0.05) 100%
+  );
+  backdrop-filter: blur(15px);
+  border-radius: 18px;
+  border: 1px solid rgba(170, 6, 16, 0.12); /* גבול אדום עדין */
+  padding: 25px 30px;
+  margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(212, 184, 157, 0.05), /* הדגשת ברונזה בהירה */
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.quoteContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(170, 6, 16, 0.04), /* הבהוב אדום עדין */
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.quoteContainer:hover::before {
+  left: 100%;
+}
+
+.quoteContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(170, 6, 16, 0.03) 0%, transparent 70%); /* ניצוץ מרכזי אדום */
+  pointer-events: none;
+}
+
+.quote {
+  font-family: 'Heebo', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #E0C8B0; /* קרם ברונזה בהיר */
+  line-height: 1.6;
+  text-align: center;
+  font-style: italic;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.textBlock {
+  margin-bottom: 3rem;
+}
+
+.paragraph {
+  font-family: 'Heebo', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #C7B5A4; /* בז' אפרפר עדין */
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  padding: 0;
+}
+
+.paragraph strong {
+  font-weight: 500;
+  color: #D4B89D; /* ברונזה בהירה */
+  font-size: 1.2rem;
+}
+
+/* Elegant Bronze Divider */
+.divider {
+  width: 60%;
+  height: 1px;
+  /* גראדיאנט חלוקה בגווני ברונזה */
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 184, 157, 0.3) 20%,
+    rgba(199, 181, 164, 0.5) 50%,
+    rgba(212, 184, 157, 0.3) 80%,
+    transparent 100%
+  );
+  margin: 1.5rem auto;
+  position: relative;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(212, 184, 157, 0.6) 0%, transparent 70%); /* נקודת ברונזה מרכזית */
+  border-radius: 50%;
+}
+
+.divider::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(240, 230, 210, 0.1) 50%, /* הדגשה שמנת עדינה למעלה */
+    transparent 100%
+  );
+  transform: translateY(-0.5px);
+}
+
+/* Final text styling */
+.finalText {
+  font-family: 'Heebo', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #D4B89D; /* ברונזה בהירה */
+  margin-bottom: 2rem;
+  text-align: center;
+  font-style: italic;
+  margin-top: 2.5rem;
+}
+
+/* CTA Button */
+.ctaButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 20px 30px;
+  /* רקע גלאסי בגווני אדום */
+  background: linear-gradient(
+    135deg,
+    rgba(170, 6, 16, 0.12) 0%,
+    rgba(140, 5, 13, 0.08) 50%,
+    rgba(120, 4, 11, 0.12) 100%
+  );
+  backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(170, 6, 16, 0.25); /* גבול אדום */
+  border-radius: 25px;
+  font-family: 'Heebo', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #D4B89D; /* טקסט ברונזה */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(212, 184, 157, 0.05); /* הדגשת ברונזה */
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(170, 6, 16, 0.08), /* הבהוב אדום */
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.ctaButton:hover::before {
+  left: 100%;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(212, 184, 157, 0.1); /* הדגשה ברונזה */
+  border-color: rgba(170, 6, 16, 0.4); /* גבול אדום חזק יותר */
+  color: #E0C8B0; /* צבע טקסט קרם בהיר יותר */
+}
+
+.buttonIcon {
+  font-size: 1.3rem;
+}
+
+/* Animation helper class */
+.revealItem {
+  visibility: hidden;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    width:90%;
+    margin:0 auto;
+    height: auto;
+  }
+  
+  .imageWrapper {
+    height: 60vh;
+    order: 1;
+    padding: 15px;
+  }
+  
+  .content {
+    height: auto;
+    padding: 40px 60px;
+    order: 2;
+    border-left: none;
+    border-top: 1px solid rgba(170, 6, 16, 0.15); /* גבול אדום עדין */
+  }
+  
+  .mainTitle {
+    font-size: 2rem;
+  }
+  
+  .quote {
+    font-size: 1.15rem;
+  }
+  
+  .divider {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .imageWrapper {
+    height: 65vh;
+    padding: 10px;
+    order: 1;
+  }
+
+  .content {
+    padding: 30px 0; /* הוסר ה-padding הוריזנטלי */
+    text-align: center;
+    border-left: none;
+    border-top: 1px solid rgba(170, 6, 16, 0.15);
+  }
+
+  .mainTitle {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .quote {
+    font-size: 1.05rem;
+    text-align: center;
+  }
+
+  .paragraph {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .quoteContainer {
+    padding: 20px 25px;
+  }
+
+  .divider {
+    width: 40%;
+    margin: 1.5rem auto;
+  }
+
+  .finalText {
+    text-align: center;
+  }
+
+  .ctaButton {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .imageWrapper {
+    height: 60vh;
+    padding: 8px;
+  }
+
+  .mainTitle {
+    font-size: 1.5rem;
+  }
+
+  .paragraph {
+    font-size: 0.95rem;
+  }
+
+  .ctaButton {
+    padding: 18px 25px;
+    font-size: 1rem;
+  }
+
+  .quote {
+    font-size: 1rem;
+  }
+
+  .quoteContainer {
+    padding: 18px 20px;
+  }
+
+  .divider {
+    width: 35%;
+  }
+
+  .content {
+    padding: 20px 0; /* הוסר גם כאן */
+  }
+}

@@ -1,0 +1,586 @@
+/* יוקרתי ואיכותי - עיצוב ממליצים פרימיום */
+
+.recommendsContainer {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  min-height: 80vh;
+  margin: 5% auto;
+  padding: 10px 50px;
+  justify-content: space-between;
+  gap: 50px;
+  direction: rtl;
+  
+  /* --- עדכון: אפקט רקע יוקרתי - גוון זהב עדין ובוהק --- */
+  background: 
+    linear-gradient(135deg, 
+      #fcfcfc 0%, /* לבן בהיר מאוד */
+      #fff8e1 30%, /* גוון זהב חיוור/קרם */
+      #fcfcfc 70%, 
+      #fef9e7 100% /* גוון בהיר */
+    );
+  
+  /* אפקט בועה יוקרתית - רק צל פנימי */
+  border-radius: 24px;
+
+  /* גבול עדין */
+  border: 1px solid rgba(240, 240, 240, 0.9);
+  
+  /* הוספת אנימציה עדינה לאלמנט המרכזי */
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  overflow: hidden;
+
+  /* צל קופסא עדין למראה תלת ממדי */
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.05), /* צל ראשי */
+    inset 0 0 50px rgba(255, 255, 255, 0.8); /* הברקה פנימית עדינה */
+}
+
+/* --- עדכון: הוספת אפקט Glassmorphism לאזור ההמלצות --- */
+.leftSection {
+  flex: 1; /* שינוי מ-width קבוע ל-flex:1 כדי לשמור על גמישות */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  
+  /* צל עדין להפרדת האזורים */
+  box-shadow: -5px 0 15px -5px rgba(0, 0, 0, 0.08); /* צל עדין יותר */
+  padding: 20px;
+  border-radius: 12px;
+  
+  /* אפקט זכוכית לאזור ההמלצות */
+  background: rgba(255, 255, 255, 0.2); /* שקיפות נמוכה יותר */
+  backdrop-filter: blur(15px); /* טשטוש חזק יותר */
+  -webkit-backdrop-filter: blur(15px);
+  
+  /* גבול עדין למראה זכוכית */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* גבול בהיר */
+  border-right: 1px solid rgba(255, 255, 255, 0.3); /* גבולות שונים ל-3D */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  
+  z-index: 3; /* ודא שהוא מעל הרקע */
+}
+
+
+.rightSection {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 300; /* דק יותר למראה מינימליסטי */
+  color: #333;
+  margin-bottom: 35px;
+  text-align: right;
+  position: relative;
+  letter-spacing: -1.5px;
+  
+  /* מראה מינימליסטי ויוקרתי */
+  color: #222;
+  font-family: 'OpenSans';
+  
+  /* קו דקורטיבי עדין מתחת לכותרת */
+  padding-bottom: 18px;
+}
+
+/* קו דקורטיבי מתחת לכותרת (לשחזר את האפקט הקודם) */
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 2px;
+  background-color: #d4af37; /* צבע זהב */
+  transition: width 0.3s ease-in-out;
+}
+
+/* אפקט ריחוף עדין יותר על כותרת */
+.recommendsContainer:hover .title::after {
+  width: 60px;
+}
+
+
+.headerImageContainer {
+  width: 100%;
+  margin-top: 40px;
+  position: relative;
+}
+
+.headerImage {
+  width: 100%;
+  max-width: 24vw;
+  border-radius: 16px;
+  object-fit: cover;
+  /* border: 5px solid #fff; */ /* אפשר להוסיף גבול לבן */
+  /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); */ /* צל עדין */
+
+  filter: saturate(1.05);
+  transition: all 0.5s ease;
+}
+
+/* אפקט מבריק עדין לתמונה */
+.headerImageContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 30%;
+  width: 30%; /* יותר צר */
+  height: 100%;
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0) 0%, 
+    rgba(255,255,255,0.08) 50%, /* שקיפות גבוהה יותר לאפקט עדין */
+    rgba(255,255,255,0) 100%);
+  transform: skewX(-15deg);
+  pointer-events: none;
+  animation: shine 5s infinite; /* איטי יותר */
+}
+
+@keyframes shine {
+  0% { left: -50%; opacity: 0; }
+  10% { opacity: 1; }
+  60% { opacity: 0; }
+  100% { left: 120%; opacity: 0; }
+}
+
+/* עיצוב ההמלצות עצמן (ברכיב Testimonials) - כרטיסים צריכים להיות אטומים כדי שייקראו היטב */
+.testimonialCard {
+  background: #ffffff; /* רקע לבן אטום לטקסט קריא */
+  border-radius: 12px;
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.05),
+    0 5px 10px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s ease;
+  margin: 12px 0;
+  overflow: hidden;
+  transform: translateY(0);
+}
+
+.testimonialCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 15px 30px rgba(0, 0, 0, 0.1),
+    0 8px 15px rgba(0, 0, 0, 0.05);
+}
+
+.testimonialImage {
+  border-radius: 10px;
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+.testimonialCard:hover .testimonialImage {
+  transform: scale(1.03);
+}
+
+/* מדיה קווריז משופרים לפי הדרישות */
+
+/* 1150px-1250px */
+@media (max-width: 1250px) and (min-width: 1150px) {
+  .recommendsContainer {
+    width: 70%;
+    gap: 40px;
+  }
+  
+  .headerImage {
+    max-width: 26vw;
+  }
+}
+
+/* 1050px-1150px */
+@media (max-width: 1150px) and (min-width: 1050px) {
+  .recommendsContainer {
+    width: 75%;
+    gap: 35px;
+    padding: 35px 45px;
+  }
+  
+  .headerImage {
+    max-width: 28vw;
+  }
+  
+  .title {
+    font-size: 34px;
+  }
+}
+
+/* 950px-1050px */
+@media (max-width: 1050px) and (min-width: 950px) {
+  .recommendsContainer {
+    width: 80%;
+    gap: 30px;
+    padding: 30px 40px;
+  }
+  
+  .headerImage {
+    max-width: 30vw;
+  }
+  
+  .title {
+    font-size: 32px;
+  }
+}
+
+/* 850px-950px */
+@media (max-width: 950px) and (min-width: 850px) {
+  .recommendsContainer {
+    width: 85%;
+    gap: 30px;
+    padding: 30px 35px;
+  }
+  
+  .headerImage {
+    max-width: 32vw;
+  }
+  
+  .title {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .leftSection {
+    padding: 15px;
+  }
+}
+
+/* 750px-850px */
+@media (max-width: 850px) and (min-width: 750px) {
+  .recommendsContainer {
+    width: 90%;
+    gap: 25px;
+    padding: 30px;
+    min-height: 70vh;
+  }
+  
+  .headerImage {
+    max-width: 34vw;
+  }
+  
+  .title {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+  
+  .leftSection {
+    padding: 15px;
+  }
+}
+
+/* 650px-750px - נקודת מפנה למבנה טור */
+@media (max-width: 750px) and (min-width: 650px) {
+  .recommendsContainer {
+    flex-direction: column;
+    width: 85%;
+    padding: 30px;
+    gap: 30px;
+    min-height: auto;
+  }
+  
+  .rightSection {
+    width: 100%;
+    align-items: center;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 0.3px;
+  }
+  
+  /* מיקום הקו הדקורטיבי משתנה במבנה טור */
+  .title::after {
+    right: 50%;
+    transform: translateX(50%);
+  }
+  
+  .headerImage {
+    max-width: 50vw;
+  }
+  
+  .headerImageContainer {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .leftSection {
+    width: 100%;
+    margin-top: 10px;
+    border-right: 1px solid rgba(255, 255, 255, 0.5); /* גבולות Glassmorphism */
+    border-top: 1px solid rgba(255, 255, 255, 0.5); /* שינוי זה */
+    padding-top: 25px;
+    box-shadow: 0 -5px 15px -5px rgba(0, 0, 0, 0.08); /* צל עדין להפרדה למעלה */
+  }
+}
+
+/* 550px-650px */
+@media (max-width: 650px) and (min-width: 550px) {
+  .recommendsContainer {
+    flex-direction: column;
+    width: 90%;
+    padding: 25px;
+    gap: 25px;
+    margin: 4% auto;
+  }
+  
+  .rightSection {
+    width: 100%;
+    align-items: center;
+    padding-top: 20px;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    letter-spacing: 0.2px;
+  }
+  
+  .title::after {
+    right: 50%;
+    transform: translateX(50%);
+    width: 35px;
+  }
+  
+  .headerImage {
+    max-width: 55vw;
+    border-width: 3px;
+    box-shadow: 
+      0 10px 25px rgba(0, 0, 0, 0.15),
+      0 5px 10px rgba(0, 0, 0, 0.08);
+  }
+  
+  .headerImageContainer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .leftSection {
+    width: 100%;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    padding-top: 20px;
+    box-shadow: 0 -5px 15px -5px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* 450px-550px */
+@media (max-width: 550px) and (min-width: 450px) {
+  .recommendsContainer {
+    flex-direction: column;
+    width: 90%;
+    padding: 20px;
+    gap: 20px;
+    margin: 3% auto;
+    border-radius: 18px;
+  }
+  
+  .rightSection {
+    width: 100%;
+    align-items: center;
+    padding-top: 15px;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    letter-spacing: 0.1px;
+  }
+  
+  .title::after {
+    right: 50%;
+    transform: translateX(50%);
+    width: 30px;
+  }
+  
+  .headerImage {
+    max-width: 65vw;
+    border-width: 3px;
+    border-radius: 14px;
+  }
+  
+  .headerImageContainer {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .leftSection {
+    width: 100%;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 15px 10px;
+    box-shadow: 0 -5px 15px -5px rgba(0, 0, 0, 0.08);
+  }
+  
+  .testimonialCard {
+    margin: 8px 0;
+  }
+}
+
+/* 350px-450px */
+@media (max-width: 450px) and (min-width: 350px) {
+  .recommendsContainer {
+    flex-direction: column;
+    width: 90%;
+    padding: 18px;
+    gap: 15px;
+    margin: 3% auto;
+    border-radius: 16px;
+    box-shadow: 
+      0 10px 30px rgba(0, 0, 0, 0.05),
+      inset 0 0 25px rgba(255, 255, 255, 0.7);
+  }
+  
+  .rightSection {
+    width: 100%;
+    align-items: center;
+    padding-top: 10px;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    letter-spacing: 0;
+  }
+  
+  .title::after {
+    right: 50%;
+    transform: translateX(50%);
+    width: 25px;
+    height: 1.5px;
+  }
+  
+  .headerImage {
+    max-width: 80vw;
+    border-width: 2px;
+    border-radius: 12px;
+    box-shadow: 
+      0 8px 20px rgba(0, 0, 0, 0.15),
+      0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .headerImage:hover {
+    transform: translateY(-5px) scale(1.01);
+  }
+  
+  .headerImageContainer {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .leftSection {
+    width: 100%;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 12px 8px;
+    box-shadow: 0 -5px 15px -5px rgba(0, 0, 0, 0.08);
+  }
+  
+  .testimonialCard {
+    margin: 7px 0;
+    border-radius: 10px;
+  }
+  
+  .testimonialImage {
+    border-radius: 8px;
+  }
+}
+
+/* מתחת ל-350px */
+@media (max-width: 350px) {
+  .recommendsContainer {
+    flex-direction: column;
+    width: 90%;
+    padding: 15px;
+    gap: 12px;
+    margin: 2% auto;
+    border-radius: 14px;
+    box-shadow: 
+      0 8px 25px rgba(0, 0, 0, 0.05),
+      inset 0 0 20px rgba(255, 255, 255, 0.7);
+  }
+  
+  .rightSection {
+    width: 100%;
+    align-items: center;
+    padding-top: 8px;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    letter-spacing: 0;
+  }
+  
+  .title::after {
+    right: 50%;
+    transform: translateX(50%);
+    width: 20px;
+    height: 1.5px;
+  }
+  
+  .headerImage {
+    max-width: 85vw;
+    border-width: 2px;
+    border-radius: 10px;
+    box-shadow: 
+      0 6px 15px rgba(0, 0, 0, 0.15),
+      0 3px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .headerImage:hover {
+    transform: translateY(-3px) scale(1.01);
+  }
+  
+  .headerImageContainer {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .leftSection {
+    width: 100%;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 10px 5px;
+    box-shadow: 0 -5px 15px -5px rgba(0, 0, 0, 0.08);
+  }
+  
+  .testimonialCard {
+    margin: 6px 0;
+    border-radius: 8px;
+    box-shadow: 
+      0 6px 15px rgba(0, 0, 0, 0.04),
+      0 3px 6px rgba(0, 0, 0, 0.02);
+  }
+  
+  .testimonialCard:hover {
+    transform: translateY(-3px);
+  }
+  
+  .testimonialImage {
+    border-radius: 6px;
+  }
+  
+  /* הקטנת אפקט ההברקה במסכים קטנים */
+  .headerImageContainer::after {
+    width: 20%;
+    animation: shine 6s infinite;
+  }
+}

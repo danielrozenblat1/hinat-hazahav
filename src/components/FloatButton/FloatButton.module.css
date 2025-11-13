@@ -1,0 +1,102 @@
+.floatingButton {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(150%);
+  direction: rtl;
+  padding: 18px 0;
+  width: 100%;
+  
+  /* גרדיאנט זהוב כמו הכפתור המקורי */
+  background: linear-gradient(145deg, #c9a876 0%, #e8dcc8 50%, #c9a876 100%);
+  border: none;
+  border-radius: 0;
+  
+  /* צל זהוב */
+  box-shadow: 0 8px 25px rgba(201, 168, 118, 0.3);
+  
+  cursor: pointer;
+  z-index: 1000;
+  
+  /* אנימציה חלקה */
+  transition: all 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  
+  /* למניעת בחירת טקסט */
+  user-select: none;
+  -webkit-user-select: none;
+  
+  /* מרכוז הטקסט */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.floatingButton.visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.floatingButton.static {
+  position: absolute;
+  bottom: 0;
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.floatingButton:hover {
+  box-shadow: 0 12px 35px rgba(201, 168, 118, 0.4);
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.floatingButton.static:hover {
+  transform: translateX(-50%) translateY(-5px);
+  box-shadow: 0 12px 35px rgba(201, 168, 118, 0.4);
+}
+
+.floatingButton:active {
+  transform: translateX(-50%) translateY(1px);
+  box-shadow: 0 4px 15px rgba(201, 168, 118, 0.3);
+}
+
+.floatingButton.static:active {
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 4px 15px rgba(201, 168, 118, 0.3);
+}
+
+.buttonText {
+  color: #4a0e0e;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: "Assistant", sans-serif;
+  white-space: nowrap;
+  letter-spacing: -0.5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .floatingButton {
+    padding: 16px 0;
+  }
+  
+  .buttonText {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .floatingButton {
+    padding: 14px 0;
+    width: 100%;
+  }
+  
+  .buttonText {
+    font-size: 1.1rem;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+  }
+}

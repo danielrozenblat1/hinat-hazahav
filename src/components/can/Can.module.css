@@ -1,0 +1,113 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px auto;
+  background: linear-gradient(165deg, 
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(250, 244, 237, 0.8) 100%
+  );
+  padding: 1.5rem 1rem;
+  direction: rtl;
+  width: 360px;
+  backdrop-filter: blur(20px);
+  border-radius: 15px;
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(235, 225, 215, 0.8);
+  box-shadow: 
+    0 5px 10px -2px rgba(0, 0, 0, 0.05),
+    0 4px 6px -2px rgba(0, 0, 0, 0.02),
+    inset 4px 4px 8px rgba(213, 187, 157, 0.2),
+    inset -4px -4px 8px rgba(235, 225, 215, 0.3),
+    inset -2px -2px 4px rgba(244, 235, 225, 0.3);
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    125deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.2) 25%,
+    rgba(213, 187, 157, 0.1) 50%,
+    rgba(213, 187, 157, 0.15) 75%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  pointer-events: none;
+  border-radius: 15px;
+  z-index: -1;
+}
+
+.container:hover {
+  transform: translateY(-2px);
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  margin-bottom: 0.8rem;
+  color: rgba(196, 164, 132, 0.9);
+  position: relative;
+  filter: drop-shadow(1px 1px 2px rgba(255, 255, 255, 0.8));
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  direction: rtl;
+  width: 100%;
+}
+
+.title {
+  font-family: 'Hatzor', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: #3f0404;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.text {
+  font-family: 'HeeboR', sans-serif;
+  font-size: 1.05rem;
+  margin: 0;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #4e0909;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 350px) {
+  .container {
+    width: 270px;
+    padding: 1.2rem 0.8rem;
+  }
+
+  .icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.6rem;
+  }
+
+  .title {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .text {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,101 @@
+.headerSection {
+  text-align: center;
+  margin: 2% auto;
+  padding: 0 20px; /* הוסף padding */
+}
+
+.title {
+  font-family: 'OpenSans', sans-serif;
+  font-size: 2.5rem;
+  color: rgb(0, 0, 0);
+  letter-spacing: -1px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.description {
+  font-family: 'OpenSansR', sans-serif;
+  font-size: 1.4rem;
+  text-align: center;
+  margin: 2% auto;
+  width: 70%;
+  max-width: 100%; /* הוסף */
+  padding: 0 20px; /* הוסף */
+  box-sizing: border-box; /* הוסף */
+  font-weight: 400;
+}
+
+.goldText {
+  background: linear-gradient(145deg, #c9a876 0%, #e8dcc8 50%, #c9a876 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.ctaButton {
+  display: block;
+  margin: 2% auto;
+  background: linear-gradient(145deg, #e1ccab 0%, #e8dcc8 50%, #decbae 100%);
+  color: #3a0101;
+  font-family: 'OpenSans', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 1.2rem 3rem;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(201, 168, 118, 0.4);
+  letter-spacing: -0.5px;
+  position: relative;
+  z-index: 3;
+  max-width: calc(100% - 40px); /* הוסף למובייל */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+    padding: 0 15px; /* הוסף */
+  }
+  
+  .description {
+    font-size: 1.2rem;
+    width: 90%;
+    padding: 0 15px;
+  }
+  
+  .ctaButton {
+    font-size: 1.15rem;
+    padding: 1rem 2.5rem;
+    margin: 2% 15px; /* שנה מ-auto */
+    width: calc(100% - 30px);
+  }
+  
+  .headerSection {
+    margin: 2% auto;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.8rem;
+    padding: 0 15px;
+  }
+  
+  .description {
+    font-size: 1.05rem;
+    width: 90%;
+    padding: 0 15px;
+  }
+  
+  .ctaButton {
+    font-size: 1.05rem;
+    padding: 0.9rem 2rem;
+    margin: 2% 15px;
+    width: calc(100% - 30px);
+  }
+}

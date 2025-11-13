@@ -1,0 +1,152 @@
+.background {
+  background: #AA0610;
+}
+
+.headerSection {
+  text-align: center;
+}
+
+.title {
+  font-family: 'OpenSans', sans-serif;
+  font-size: 2.5rem;
+  color: rgb(255, 255, 255);
+  letter-spacing: -1px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.goldText {
+  background: linear-gradient(145deg, #c9a876 0%, #e8dcc8 50%, #c9a876 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.ctaButton {
+  display: block;
+  margin: 0 auto;
+  background: linear-gradient(145deg, #e1ccab 0%, #e8dcc8 50%, #decbae 100%);
+  color: #3a0101;
+  font-family: 'OpenSans', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 1.2rem 3rem;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(201, 168, 118, 0.4);
+  letter-spacing: -0.5px;
+  position: relative;
+  z-index: 3;
+}
+
+.galleryContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  direction: rtl;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imageWrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(201, 168, 118, 0.4);
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.imageWrapper:hover .image {
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  
+  .title {
+    font-size: 2.2rem;
+  }
+  
+  .ctaButton {
+    font-size: 1.2rem;
+    padding: 1.1rem 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .background {
+    padding: 10px 0;
+  }
+  
+  .headerSection {
+    margin: 2% auto 30px;
+  }
+  
+  .ctaButton {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .galleryContainer {
+    padding: 0 15px;
+  }
+  
+  .imageWrapper {
+    border-radius: 8px;
+  }
+  
+  .ctaButton {
+    font-size: 1rem;
+    padding: 0.9rem 1.8rem;
+    border-radius: 12px;
+  }
+}
